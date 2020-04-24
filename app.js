@@ -9,6 +9,11 @@ app.use(bodyParser.json());
 // support parsing of urlencoded bodies (e.g. for forms)
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/search', foodRouter);
+app.use('/list', listRouter)
+app.use('/recommendations', recommendationsRouter)
+
+
 // GET home page
 app.get("/", (req, res) => {
   res.send("<H1>Library System</H1>");

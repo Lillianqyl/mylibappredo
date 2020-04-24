@@ -1,5 +1,9 @@
 // provide the controller a link to the dish model
-var listdishes = require('../model/dishes');
+const mongoose = require("mongoose");
+
+// import list model
+const listdish = mongoose.model("list");
+
 
 // Function to compare rating
 function compare(a, b) {
@@ -16,12 +20,13 @@ function compare(a, b) {
     return comparison;
 }
 
-const getSortDishes = (req, res) => {
-    res.send(listdishes.sort(compare)); // return the list of sorted dishes
+const getSortDish = (req, res) => {
+    res.send(listdish.sort(compare)); // return the list of sorted dishes
 };
 
 
 // Remember to export the callbacks
 module.exports = {
-    getSortDishes,
+    getSortDish,
 };
+
